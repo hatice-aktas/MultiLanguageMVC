@@ -1,5 +1,7 @@
-﻿@{
-    ViewData["Title"] = "Privacy Policy";
+﻿@using MultiLanguageMVC.Resources.Services.Lang;
+@inject LanguageService language
+@{
+    ViewData["Title"] = @language.GetKey("privacy_policy_pc");
 }
 <h1>@ViewData["Title"]</h1>
 

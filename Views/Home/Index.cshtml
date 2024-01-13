@@ -1,7 +1,7 @@
-﻿@using MultiLanguageMVC.Services.Lang;
+﻿@using MultiLanguageMVC.Resources.Services.Lang;
 @inject LanguageService language
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = @language.GetKey("home_pc");
 }
 
 <div class="text-center">

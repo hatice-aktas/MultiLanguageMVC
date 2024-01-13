@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
+//using MultiLanguageMVC.Services.Lang;
+using System.ComponentModel.Design;
+using System.Globalization;
 
 namespace MultiLanguageMVC.Controllers.Lang
 {

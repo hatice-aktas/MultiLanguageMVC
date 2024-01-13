@@ -1,4 +1,4 @@
-﻿@using MultiLanguageMVC.Services.Lang;
+﻿@using MultiLanguageMVC.Resources.Services.Lang;
 @inject LanguageService language
 <!DOCTYPE html>
 <html lang="en">
@@ -92,7 +92,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2024 - MultiLanguageMVC - <a asp-area="" asp-controller="Home" asp-action="Privacy">@language.GetKey("privacy_pc")</a>
+            &copy; 2024 - @language.GetKey("ornek_coklu_dil_projesi_pc") - <a asp-area="" asp-controller="Home" asp-action="Privacy">@language.GetKey("privacy_pc")</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

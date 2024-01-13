@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Options;
-using MultiLanguageMVC.Services.Lang;
+using MultiLanguageMVC.Resources.Services.Lang;
 using System.Globalization;
 using System.Reflection;
 
