@@ -1,0 +1,111 @@
+﻿@using MultiLanguageMVC.Services.Lang;
+@inject LanguageService language
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MultiLanguageMVC</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MultiLanguageMVC.styles.css" asp-append-version="true" />
+
+    <style>
+        .rounded-circle {
+            width: 1.5rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">@language.GetKey("ornek_coklu_dil_projesi_pc")</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">@language.GetKey("home_pc")</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">@language.GetKey("privacy_pc")</a>
+                        </li>
+
+                        
+
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <div class="dropdown" style="margin-top: 0.4rem;min-width:9rem;">
+                                <a href="#" id="imageDropdown" data-toggle="dropdown">
+                                    <img id="languageImage" class="rounded-circle" src="~/images/@language.GetKey("LanguageImage")">
+                                    <span style="margin-left:10px">@language.GetKey("LanguageText")</span>
+                                </a>
+                                <ul class="dropdown-menu" style="right: 0; left: auto;" role="menu" aria-labelledby="imageDropdown">
+                                    <li role="presentation">
+                                        <a class="dropdown-item" asp-controller="Language" asp-action="ChangeLanguage" asp-route-culture="tr">
+                                            <span>
+                                                <img class="rounded-circle" src="~/images/turkiye.png" alt="" />
+                                            </span>
+                                            <span style="margin-left:10px">@language.GetKey("turkce_pc")</span>
+                                        </a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a class="dropdown-item" asp-controller="Language" asp-action="ChangeLanguage" asp-route-culture="en">
+                                            <span>
+                                                <img class="rounded-circle" src="~/images/england.png" alt="" />
+                                            </span>
+                                            <span style="margin-left:10px">@language.GetKey("ingilizce_pc")</span>
+                                        </a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a class="dropdown-item" asp-controller="Language" asp-action="ChangeLanguage" asp-route-culture="ru">
+                                            <span>
+                                                <img class="rounded-circle" src="~/images/russia.png" alt="" />
+                                            </span>
+                                            <span style="margin-left:10px">@language.GetKey("rusca_pc")</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - MultiLanguageMVC - <a asp-area="" asp-controller="Home" asp-action="Privacy">@language.GetKey("privacy_pc")</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    @*<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>*@
+    <script src="~/lib/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        $(".dropdown-menu a ").click(function () {
+            $image = $(this).find('img').attr("src")
+            $(this).closest('.dropdown').find('a #languageImage').attr("src", $image);
+        });
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,10 @@
+﻿@using MultiLanguageMVC.Services.Lang;
+@inject LanguageService language
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@language.GetKey("welcome_pc")</h1>
+    <p>This project exemplifies the multi-language support of constants in the project.</p>
+</div>
